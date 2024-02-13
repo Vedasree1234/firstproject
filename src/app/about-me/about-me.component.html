@@ -1,0 +1,26 @@
+<div class="row">
+<div class="nav-bar">
+    <ul class="nav-list">
+        <li class="list-item">
+            <a routerLink="/aboutme/projects" routerLinkActive="active">Projects</a>
+        </li >
+        <li class="list-item">
+            <a routerLink="/aboutme/skills" routerLinkActive="active">Skills</a>
+        </li>
+        <li class="list-item">
+            <a routerLink="/aboutme/resume" routerLinkActive="active">Resume</a>
+        </li>
+        <li class="list-item">
+            <a routerLink="/aboutme/contact" routerLinkActive="active">Contact</a>
+        </li>
+        <li class="list-item">
+            <a routerLink="/aboutme/achievements" routerLinkActive="active">Achievements</a>
+        </li>
+        <li>
+        <button class="btn btn-primary mt-2"(click)="logout()">Logout</button>
+       </li>
+    </ul>
+
+</div>
+</div>
+<router-outlet></router-outlet>
