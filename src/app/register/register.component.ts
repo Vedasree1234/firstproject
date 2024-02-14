@@ -42,12 +42,12 @@ export class RegisterComponent {
   get alternateEmails()
   {
     return this.registrationForm.get('alternateEmails') as FormArray
-  } 
+  }
   addAlternateEmail()
   {
     this.alternateEmails.push(this.fb.control('',[Validators.email]))
   }
- 
+
   states=[
    {
      'id':1,
@@ -110,17 +110,17 @@ districts=[
     id:8,
     name:'Krishnagiri',
     s_id:2
-  }, 
+  },
   {
     id:9,
     name:'Bidar',
     s_id:3
-  }, 
+  },
   {
     id:10,
     name:'Chikballapur',
     s_id:3
-  }, 
+  },
   {
     id:11,
     name:'Khammam',
@@ -147,7 +147,7 @@ updatedistricts(e:any)
     )
 }
   ngOnInit() {
- 
+
     this.registrationForm=this.fb.group({
       username:['',[Validators.required,Validators.minLength(3),forbiddenNameValidator]],
       emailid:['',[Validators.required,Validators.email]],
@@ -156,10 +156,10 @@ updatedistricts(e:any)
       confirmPassword:['',[Validators.required]],
       address:this.fb.group({
         city:['',[Validators.required]],
-        state:['',[Validators.required]],
+     
         postalcode:['',[Validators.required,Validators.minLength(4),Validators.maxLength(8)]]
       }),alternateEmails:this.fb.array([]),
-      
+
     },{validators:passwordValidator});
     this.registrationForm.get('subscribe').valueChanges.subscribe((checkedValue: any)=>{
       const email=this.registrationForm.get('emailid')
@@ -177,6 +177,7 @@ updatedistricts(e:any)
  onSubmit()
  {
   this.submitted=true;
+  console.log(this.registrationForm.value)
 const postdata={...this.registrationForm.value}
 delete postdata.confirmPassword,
 delete postdata.address.city,
@@ -184,7 +185,7 @@ delete postdata.address.state,
 delete postdata.address.postalcode
 this.auth.registerUser(postdata as User).subscribe(
   response=>{
-   
+
     if(this.registrationForm.valid)
     {
       console.log(response)
@@ -213,7 +214,7 @@ this.auth.registerUser(postdata as User).subscribe(
 //     return null
 //   }
 //  }
- 
+
 
 //  registrationForm=this.fb.FormBuilder
   // registrationForm=new FormGroup

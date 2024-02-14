@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit{
   {
     return this.loginForm.get('password')
   }
-  constructor(private fb: FormBuilder,private route:Router,private ar:ActivatedRoute,private service:AutherizationService) { 
+  constructor(private fb: FormBuilder,private route:Router,private ar:ActivatedRoute,private service:AutherizationService) {
 
     // this.route.queryParams.subscribe((params )=> {
     //   this.registrationSuccess = params['success'] === 'true';
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit{
     this.loginForm = this.fb.group({
       emailid: ['', [Validators.required,Validators.email]],
       password:['',[Validators.required]]
-      
+
     });
   }
   ngOnInit()
@@ -43,20 +43,20 @@ submit=false;
     const{emailid,password}=this.loginForm.value;
     this.service.getUserByEmail(emailid as string).subscribe(
       response=>{
-        if(this.loginForm.valid)
-        {
+
         if(response[0].password===password)
         {
+          sessionStorage.setItem('emailid',emailid as string)
           console.log(response)
           this.route.navigate(['/aboutme'])
         }
       }
-      },
+      ,
       errors=>{
         console.log(errors)
       }
     )
-  
+
   }
-  
+
 }

@@ -1,9 +1,4 @@
-<div *ngIf="registrationSuccess" class="alert alert-success">
-    Registration successful! Please log in.
-  </div>
-  
-  <!-- Your login form goes here -->
-  
+
 <div class="container mt-5">
     <h1>Login Form</h1>
   <div class="login-container mt-3">
@@ -12,7 +7,7 @@
 
         <div class="form-group">
             <label ><i class="fa fa-envelope"></i> Emailid</label>
-            <input type="email"  
+            <input type="email"
             [class.is-invalid]="emailid?.invalid && emailid?.touched"
              formControlName="emailid" class="form-control">
              <div *ngIf="emailid.invalid && emailid.touched ||submit && emailid?.invalid">
@@ -33,10 +28,11 @@
         <div class="form-group">
             <button type="submit" class="btn btn-success">Login</button>
         </div>
+        <div class="register-container mt-3">
+          <a routerLink="/register">New User? click here to Register</a>
+      </div>
     </form>
-    <!-- <div class="register-container mt-3">
-        <a routerLink="/register" routerLinkActive="active">New User? click here to Register</a>
-    </div> -->
+
 
 </div>
 </div>
