@@ -9,18 +9,22 @@ import { ResumeComponent } from './resume/resume.component';
 import { ContactComponent } from './contact/contact.component';
 import { AchievementsComponent } from './achievements/achievements.component';
 import { AutherizationService } from './autherization.service';
+import { authguardGuard } from './authguard.guard';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
-  {path:'',component:RegisterComponent},
+  {path:'',redirectTo:'login',pathMatch:'full'},
+  {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
-  {path:'aboutme',component:AboutMeComponent,
+  {path:'aboutme',component:AboutMeComponent,canActivate:[authguardGuard],
 children:[
   {path:'projects',component:ProjectsComponent},
   {path:'skills',component:SkillsComponent},
   {path:'resume',component:ResumeComponent},
   {path:'contact',component:ContactComponent},
-  {path:'achievements',component:AchievementsComponent}
-]}
+  {path:'achievements',component:AchievementsComponent},
+
+]},{path:'**',component:PagenotfoundComponent}
 ];
 
 @NgModule({

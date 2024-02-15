@@ -63,7 +63,7 @@
           <small class="text-danger"*ngIf="registrationForm.get('confirmPassword')?.errors?.['required']">confirmPassword is Required</small>
         </div>
       
-        <div class="text-danger" *ngIf="registrationForm.errors?.['misMatch']">
+        <div class="text-danger" *ngIf="registrationForm.hasError('misMatch')">
           password doesn't match please enter correct password
         </div>
      
@@ -81,28 +81,30 @@
         </div>
       </div>
       <br>
-      <!-- <div class="form-group">
-       
+<!--       
+      <div class="form-group">
+        <label><i class="fa fa-map"></i> state</label>
         <input placeholder="Enter State"
         [class.is-invalid]="state?.invalid &&state?.touched"
          formControlName="state" type="text" class="form-control">
-         <div *ngIf="state?.invalid &&state?.touched || submitted && state?.invalid">
-         <small class="text-danger" *ngIf="state?.errors?.['required']">
-         this field is required</small>
-        </div>
-        </div> -->
-        <label><i class="fa fa-map"></i> state</label>
+           <div *ngIf="state?.invalid &&state?.touched || submitted && state?.invalid">
+              <small class="text-danger" *ngIf="state?.errors?.['required']">
+               this field is required</small>
+            </div>
+        </div>  -->
+      <div class="form-group">
         <div class="drop-down">
          <select (change)="updatedistricts($event)">
-          <option value="-1">select state</option>
+          <option selected>select state</option>
           <option value="{{s.id}}" *ngFor="let s of states">{{s.name}}</option>
          </select>
         
          <select>
-          <option value="-1">select districts</option>
+          <option selected>select districts</option>
           <option value="{{f.id}}" *ngFor="let f of filtereddistricts">{{f.name}}</option>
          </select>
         </div>
+      </div>
         <br>
       <div class="form-group">
         <label><i class="fa fa-map-pin"></i> postalcode</label>
@@ -122,9 +124,10 @@
      <!-- <button  (click)="Loadapidata()"class="btn btn-primary ml-5">LoadApiData</button>  -->
     <button class="btn btn-warning" type="button" (click)="reset()">Reset</button>
     </div>
+    <div class="login-container mt-3">
+      <a routerLink="/login" >already Register? click here to login</a>
+       </div>
   </form>
-  <div class="login-container mt-3">
-  <a routerLink="/login" routerLinkActive="active">already Register? click here to login</a>
-   </div>
+ 
 
 </div>

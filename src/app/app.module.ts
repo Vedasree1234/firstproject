@@ -14,6 +14,7 @@ import { ResumeComponent } from './resume/resume.component';
 import { ContactComponent } from './contact/contact.component';
 import { AchievementsComponent } from './achievements/achievements.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     ResumeComponent,
     ContactComponent,
     AchievementsComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
