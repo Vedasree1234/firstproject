@@ -9,7 +9,7 @@ export const authguardGuard: CanActivateFn = (route) => {
    }
    else{
     const route=inject(Router)
-    route.navigate(['aboutme'])
+    route.navigate(['about-tasks'])
     return false;
    } 
   

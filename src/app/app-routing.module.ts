@@ -2,29 +2,32 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { AboutMeComponent } from './about-me/about-me.component';
-import { ProjectsComponent } from './projects/projects.component';
 import { SkillsComponent } from './skills/skills.component';
-import { ResumeComponent } from './resume/resume.component';
 import { ContactComponent } from './contact/contact.component';
-import { AchievementsComponent } from './achievements/achievements.component';
-import { AutherizationService } from './autherization.service';
-import { authguardGuard } from './authguard.guard';
+import { authGuard } from './auth.guard'; // Corrected import statement
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ViewtaskComponent } from './viewtask/viewtask.component';
+import { TaskhistoryComponent } from './taskhistory/taskhistory.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
+import { TaskanalyticsComponent } from './taskanalytics/taskanalytics.component';
+import { AutherizationService } from './autherization.service';
+import { UserComponent } from './user/user.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'login',pathMatch:'full'},
-  {path:'register',component:RegisterComponent},
-  {path:'login',component:LoginComponent},
-  {path:'aboutme',component:AboutMeComponent,canActivate:[authguardGuard],
-children:[
-  {path:'projects',component:ProjectsComponent},
-  {path:'skills',component:SkillsComponent},
-  {path:'resume',component:ResumeComponent},
-  {path:'contact',component:ContactComponent},
-  {path:'achievements',component:AchievementsComponent},
-
-]},{path:'**',component:PagenotfoundComponent}
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  {path:'admin',component:AdminComponent},
+  {path:'admin/addtask',component:AddtaskComponent},
+  { path: 'user', component:UserComponent, canActivate: [authGuard] },
+  { path: 'user/viewtask', component: ViewtaskComponent },
+  { path: 'user/taskhistory', component: TaskhistoryComponent },
+  { path: 'user/taskanalytics', component: TaskanalyticsComponent},
+  { path: 'user/myprofile', component: MyprofileComponent },
+  { path: 'user/myprofile/skills', component: SkillsComponent },
+  { path: 'user/myprofile/contact', component: ContactComponent },
+  { path: '**', component: PagenotfoundComponent }
 ];
 
 @NgModule({

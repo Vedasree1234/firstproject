@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AchievementsComponent } from './achievements.component';
+import { TaskhistoryComponent } from './taskhistory.component';
 
-describe('AchievementsComponent', () => {
-  let component: AchievementsComponent;
-  let fixture: ComponentFixture<AchievementsComponent>;
+describe('TaskhistoryComponent', () => {
+  let component: TaskhistoryComponent;
+  let fixture: ComponentFixture<TaskhistoryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AchievementsComponent]
+      declarations: [TaskhistoryComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AchievementsComponent);
+    fixture = TestBed.createComponent(TaskhistoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

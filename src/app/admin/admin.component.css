@@ -19,10 +19,7 @@ button{
     cursor: pointer;
     width:430px;
   }
- 
-  a{
-    color:red;
-  }
+
   .register-container
   {
     display:flex;

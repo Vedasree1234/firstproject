@@ -1,13 +1,13 @@
 
 <div class="container mt-5">
-    <h1>Login Form</h1>
+    <h1>User Login Form</h1>
   <div class="login-container mt-3">
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
         <div class="form-group">
             <label ><i class="fa fa-envelope"></i> Emailid</label>
-            <input type="email"  
+            <input type="email"
             [class.is-invalid]="emailid?.invalid && emailid?.touched"
              formControlName="emailid" class="form-control">
              <div *ngIf="emailid.invalid && emailid.touched ||submit && emailid?.invalid">
@@ -28,10 +28,13 @@
             <button type="submit" class="btn btn-success">Login</button>
         </div>
         <div class="register-container mt-3">
-          <a routerLink="/register" >New User? click here to Register</a>
-      </div>
+            <a routerLink="/register">New User? click here to Register</a>
+        </div>
+        <div class="adminlogin mt-3">
+            <a routerLink="/admin"><button class="btn btn-primary" type="button">Manager Login</button></a>
+        </div>
     </form>
-   
+  
 
 </div>
 </div>

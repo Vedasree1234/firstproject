@@ -20,7 +20,7 @@
      <button type="button" class="btn btn-secondary"style="font-size:10px;margin-left:13px;margin-bottom:10px;" (click)="addAlternateEmail()">Add Alternate Email</button>
       <input [class.is-invalid]="emailid?.invalid &&emailid?.touched" placeholder="Enter Emailid" required
         formControlName="emailid" type="text" class="form-control">
-       
+
        <div *ngIf="emailid?.invalid &&emailid?.touched">
         <small class="text-danger" *ngIf="emailid?.errors?.['required']">emailid is required</small>
 
@@ -31,7 +31,7 @@
       <!-- <div *ngIf="alternateEmails?.invalid &&alternateEmails?.touched">
         <small class="text-danger" *ngIf="alternateEmails?.errors?.['email']">emailid is not valid</small>
       </div> -->
-    
+
         </div>
 
       </div>
@@ -43,7 +43,7 @@
       <input class="form-check-input" formControlName="subscribe" type="checkbox">
       <label class="form-check-label">send me updates by using above email id</label>
     </div>
-   
+
     <div class="form-group mt-2">
       <label><i class="fa fa-key"></i> Password</label>
       <input placeholder="Enter Password"
@@ -62,11 +62,11 @@
         <div *ngIf="registrationForm.get('confirmPassword').invalid && password.touched ||submitted && password?.invalid">
           <small class="text-danger"*ngIf="registrationForm.get('confirmPassword')?.errors?.['required']">confirmPassword is Required</small>
         </div>
-      
-        <div class="text-danger" *ngIf="registrationForm.hasError('misMatch')">
+
+        <div class="text-danger" *ngIf="registrationForm.errors?.['misMatch']">
           password doesn't match please enter correct password
         </div>
-     
+
 
     </div>
     <br>
@@ -81,24 +81,22 @@
         </div>
       </div>
       <br>
-<!--       
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label><i class="fa fa-map"></i> state</label>
         <input placeholder="Enter State"
         [class.is-invalid]="state?.invalid &&state?.touched"
          formControlName="state" type="text" class="form-control">
-           <div *ngIf="state?.invalid &&state?.touched || submitted && state?.invalid">
-              <small class="text-danger" *ngIf="state?.errors?.['required']">
-               this field is required</small>
-            </div>
-        </div>  -->
+         <div *ngIf="state?.invalid &&state?.touched || submitted && state?.invalid">
+         <small class="text-danger" *ngIf="state?.errors?.['required']">
+         this field is required</small>
+        </div>
+        </div> -->
       <div class="form-group">
-        <div class="drop-down">
-         <select (change)="updatedistricts($event)">
+         <div class="drop-down">
+         <select  (change)="updatedistricts($event)">
           <option selected>select state</option>
           <option value="{{s.id}}" *ngFor="let s of states">{{s.name}}</option>
          </select>
-        
          <select>
           <option selected>select districts</option>
           <option value="{{f.id}}" *ngFor="let f of filtereddistricts">{{f.name}}</option>
@@ -108,13 +106,13 @@
         <br>
       <div class="form-group">
         <label><i class="fa fa-map-pin"></i> postalcode</label>
-        <input [class.is-invalid]="addressPostalCode?.invalid && addressPostalCode?.touched" 
+        <input [class.is-invalid]="addressPostalCode?.invalid && addressPostalCode?.touched"
         placeholder="Enter postalcode" formControlName="postalcode" type="text" class="form-control">
-        
+
       <div *ngIf="addressPostalCode?.invalid && addressPostalCode?.touched ||submitted && addressPostalCode?.invalid">
         <small class="text-danger" *ngIf="addressPostalCode?.errors?.['required']">postalcode is required</small>
        <small class="text-danger" *ngIf="addressPostalCode?.errors['minlength']">postalcode must be atleast 4 characters</small>
-      <small class="text-danger" *ngIf="addressPostalCode?.errors['maxlength']">postalcode cannot be > than 6 characters</small> 
+      <small class="text-danger" *ngIf="addressPostalCode?.errors['maxlength']">postalcode cannot be > than 6 characters</small>
     </div>
       </div>
       <br>
@@ -125,9 +123,8 @@
     <button class="btn btn-warning" type="button" (click)="reset()">Reset</button>
     </div>
     <div class="login-container mt-3">
-      <a routerLink="/login" >already Register? click here to login</a>
+      <a routerLink="/login">already Register? click here to login</a>
        </div>
+     
   </form>
- 
-
 </div>
